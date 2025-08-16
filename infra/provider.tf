@@ -1,3 +1,21 @@
+
+### provider.tf
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "bpg/proxmox"
+      version = ">=0.53.1"
+    }
+  }
+}
+
+provider "proxmox" {
+  endpoint  = var.pve_host_address
+  api_token = var.pve_api_token
+  insecure  = true
+}
+
+
 # ### container.tf
 # # see https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password.html. It will download "hashicorp/random" provider
 # resource "random_password" "container_root_password" {
